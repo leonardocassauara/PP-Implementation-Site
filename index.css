@@ -1,0 +1,199 @@
+body {
+  width: 100vw;
+  max-width: 100%;
+  height: 100%;
+  background-color: black;
+  overflow: hidden;
+}
+
+.background {
+  background: linear-gradient(#37065f, #280148);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.background__frame {
+  width: 100%;
+  height: 100%;
+  padding: 3.75rem;
+}
+
+.background__wave {
+  position: absolute;
+  bottom: -360px;
+  overflow: hidden;
+}
+
+.background__logo {
+  display: block;
+  width: fit-content;
+  position: absolute;
+  top: -20px;
+  left: 43px;
+}
+
+.background__logo::before {
+  content: "";
+  display: inline-block;
+  height: 2px;
+  width: 32px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: -44px;
+  border-radius: 0.4375rem;
+}
+
+.background__content::before {
+  content: "";
+  display: inline-block;
+  height: 2px;
+  width: calc(100% - 236px);
+  background-color: #fff;
+  position: absolute;
+  border-radius: 0.4375rem;
+  top: 0;
+  right: 0;
+}
+
+.background__content {
+  border-bottom: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: end;
+  border-radius: 0.125rem;
+  position: relative;
+}
+
+.background__subtitle {
+  font-family: "Poppins Bold";
+  font-size: 1.25rem;
+  color: #fff;
+  letter-spacing: 0.625rem;
+}
+
+.background__title {
+  font-family: "Poppins Bold";
+  font-size: 4rem;
+  color: #fff;
+}
+
+.background__paragraph {
+  font-family: "Roboto Regular";
+  font-size: 1.125rem;
+  color: #fff;
+  width: 100%;
+  max-width: 96ch;
+}
+
+.background__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-left: 1rem;
+  margin-bottom: 13rem;
+}
+
+#wave {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#wave path {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+@keyframes waveAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+#wave-back,
+#wave-middle,
+#wave-front {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background: transparent;
+  animation: waveAnimation 60s linear infinite;
+  overflow: hidden;
+}
+
+#wave-middle {
+  animation-duration: 45s;
+  opacity: 0.9;
+}
+
+#wave-front {
+  animation-duration: 30s;
+  opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+  #wave,
+  #wave path {
+    width: 80rem;
+  }
+
+  #wave {
+    bottom: -10rem;
+  }
+
+  .background__title {
+    font-size: 3rem;
+    line-height: 2.625rem;
+  }
+  .background__paragraph {
+    line-height: 1.5rem;
+    max-width: 60ch;
+  }
+  .background__subtitle {
+    font-size: 1.125rem;
+    letter-spacing: 0.5rem;
+  }
+  .background__frame {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .background__title {
+    font-size: 2rem;
+    line-height: 2.625rem;
+  }
+  .background__paragraph {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    max-width: 40ch;
+  }
+  .background__subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.25rem;
+  }
+  .background__frame {
+    padding: 1.5rem;
+  }
+  #wave {
+    bottom: 0;
+  }
+}
