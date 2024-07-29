@@ -5,6 +5,17 @@
   z-index: 0;
 }
 
+:root {
+  --c0: #ffffff;
+  --c1: #efefef;
+  --c2: #d1d1d1;
+  --c3: #bfbfbf;
+  --c4: #282828;
+  --c5: #151515;
+  --c6: #000000;
+  --border-radius: 0.4375rem;
+}
+
 a {
   text-decoration: none;
 }
@@ -17,4 +28,46 @@ a {
 @font-face {
   font-family: "Roboto Regular";
   src: url("./fonts/Roboto-Regular.ttf");
+}
+
+.title {
+  font-family: "Poppins Bold";
+  font-size: 4rem;
+}
+
+.subtitle {
+  font-family: "Poppins Bold";
+  font-size: 1.25rem;
+  letter-spacing: 0.625rem;
+}
+
+.paragraph {
+  font-family: "Roboto Regular";
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 3rem;
+    line-height: 2.625rem;
+  }
+  .subtitle {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+    line-height: 2.375rem;
+  }
+  .subtitle {
+    font-size: 0.875rem;
+    letter-spacing: 0.25rem;
+  }
+  .paragraph {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
 }
