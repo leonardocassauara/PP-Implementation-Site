@@ -17,12 +17,14 @@
                 <img src="../../svg/Cassauara.svg" class="banner__logo" alt="Logo" width="116px" height="23px">
             </a>
             <div class="banner__content-wrapper">
-                <!-- TODO: implmentar estilos e heap (figma) -->
-                <h1></h1>
+                <div class="banner__text-wrapper">
+                    <p class="subtitle banner__subtitle">1º TRABALHO</p>
+                    <h1 class="title banner__title">Heap Memory</h1>
+                </div>
                 <div class="heap">
-                    <div id="heap-1" class="heap__unit">
+                    <div id="heap-1" class="heap__unit heap__unit--reserved">
                     </div>
-                    <div id="heap-2" class="heap__unit">
+                    <div id="heap-2" class="heap__unit heap__unit--reserved">
                     </div>
                     <div id="heap-3" class="heap__unit">
                     </div>
@@ -35,6 +37,28 @@
                     <div id="heap-7" class="heap__unit">
                     </div>
                     <div id="heap-8" class="heap__unit">
+                    </div>
+                    <div id="heap-9" class="heap__unit">
+                    </div>
+                    <div id="heap-10" class="heap__unit">
+                    </div>
+                    <div id="heap-11" class="heap__unit">
+                    </div>
+                    <div id="heap-12" class="heap__unit">
+                    </div>
+                </div>
+                <div class="banner__input-wrapper">
+                    <!-- TODO: Implementar logica dos botões e validação do input + dialog do sintaxe -->
+                    <form class="input">
+                        <div class="input__info-wrapper">
+                            <label for="syntax" class="label input__label">Entrada</label>
+                            <input type="text" name="syntax" id="syntax" class="input-font input__field">
+                        </div>
+                        <button type="submit" class="label input__button">+</button>
+                    </form>
+                    <div class="input__aux-buttons-wrapper">
+                        <button class="aux-button input__clear-heap">Limpar Heap</button>
+                        <button class="aux-button input__syntax-heap">Sintaxe</button>
                     </div>
                 </div>
             </div>
