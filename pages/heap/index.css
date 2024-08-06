@@ -25,6 +25,7 @@
   gap: 1rem;
   overflow-x: auto;
   scroll-behavior: smooth;
+  margin-bottom: 2rem;
 }
 
 .heap::-webkit-scrollbar {
@@ -148,9 +149,11 @@
   .input__field {
     flex-shrink: 1;
     width: 12rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
   .input__button {
-    width: 3.125rem;
-    height: 3.125rem;
+    width: 2.625rem;
+    height: 2.625rem;
   }
 }
