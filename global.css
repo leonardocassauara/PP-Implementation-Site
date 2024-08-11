@@ -103,6 +103,29 @@ a {
   scale: 1.05;
 }
 
+.dialog-title {
+  font-family: "Poppins Semi-Bold";
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.dialog-paragraph {
+  font-family: "Roboto Regular";
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+}
+
+.dialog-obs {
+  font-family: "Roboto Regular";
+  font-size: 0.875rem;
+}
+
+.error {
+  font-family: "Roboto Regular";
+  font-size: 0.875rem;
+  color: var(--danger);
+}
+
 .title {
   font-family: "Poppins Bold";
   font-size: 4rem;
@@ -251,6 +274,9 @@ a {
   }
   .banner {
     padding-bottom: 8px;
+  }
+  .error {
+    font-size: 0.75rem;
   }
   .title {
     font-size: 2rem;
