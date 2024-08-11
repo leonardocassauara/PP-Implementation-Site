@@ -7,10 +7,33 @@
     <title>Heap Memory</title>
     <link rel="stylesheet" href="/global.css">
     <link rel="stylesheet" href="./index.css">
-    <script src="./index.js"></script>
+    <script src="./linkedlist.js"></script>
 </head>
 
 <body>
+    <dialog class="dialog" id="dialog-id">
+        <div class="dialog__wrapper">
+            <div class="dialog__head">
+                <h3 class="dialog-title dialog__title">Sintaxe Suportada</h3>
+                <img class="dialog__close" src="../../svg/Close.svg" onclick="closeDialog()" alt="Ícone de fechar" width="16px" height="16px">
+            </div>
+            <div class="dialog__text-wrapper">
+                <p class="dialog-paragraph dialog__text">
+                    heap { first | best | worst | next }
+                </p>
+                <p class="dialog-paragraph dialog__text">
+                    new &lt;id&gt; &lt;number&gt;
+                </p>
+                <p class="dialog-paragraph dialog__text">
+                    &lt;id&gt; = &lt;id&gt;
+                </p>
+                <p class="dialog-paragraph dialog__text">
+                    del &lt;id&gt;
+                </p>
+            </div>
+            <p class="dialog-obs dialog__obs"><span>Obs.: </span> o botão &quot;Limpar Heap&quot; libera a instância atual da heap, sendo necessário a criação de outra heap para novo uso.</p>
+        </div>
+    </dialog>
     <main class="main">
         <article class="banner">
             <a class="banner__logo-wrapper" href="/index.html">
@@ -22,9 +45,11 @@
                     <h1 class="title banner__title">Heap Memory</h1>
                 </div>
                 <div class="heap">
-                    <div id="heap-1" class="heap__unit heap__unit--reserved">
+                    <div id="heap-0" class="heap__unit">
                     </div>
-                    <div id="heap-2" class="heap__unit heap__unit--reserved">
+                    <div id="heap-1" class="heap__unit">
+                    </div>
+                    <div id="heap-2" class="heap__unit">
                     </div>
                     <div id="heap-3" class="heap__unit">
                     </div>
@@ -44,21 +69,21 @@
                     </div>
                     <div id="heap-11" class="heap__unit">
                     </div>
-                    <div id="heap-12" class="heap__unit">
-                    </div>
                 </div>
+                <div id="assigns"></div>
                 <div class="banner__input-wrapper">
-                    <!-- TODO: Implementar logica dos botões e validação do input + dialog do sintaxe -->
-                    <form class="input">
+                    <form id="formHeap" class="input">
                         <div class="input__info-wrapper">
                             <label for="syntax" class="label input__label">Entrada</label>
                             <input type="text" name="syntax" id="syntax" class="input-font input__field">
                         </div>
-                        <button type="submit" class="label input__button">+</button>
+                        <button type="button" class="label input__button" id="form-btn" onclick="readInput()">+</button>
                     </form>
+                    <p id="error" class="error"></p>
+                    <p id="heap-method" class="dialog-obs heap__method"></p>
                     <div class="input__aux-buttons-wrapper">
-                        <button class="aux-button input__clear-heap">Limpar Heap</button>
-                        <button class="aux-button input__syntax-heap">Sintaxe</button>
+                        <button type="button" class="aux-button input__clear-heap" onclick="killHeap()">Limpar Heap</button>
+                        <button type="button" class="aux-button input__syntax-heap" onclick="showDialog()">Sintaxe</button>
                     </div>
                 </div>
             </div>
@@ -92,5 +117,6 @@
         </div>
     </footer>
 </body>
+<script src="./index.js"></script>
 
 </html>
