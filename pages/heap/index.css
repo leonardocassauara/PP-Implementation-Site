@@ -1,3 +1,8 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 .banner__content-wrapper {
   width: 100%;
   height: 100%;
@@ -20,6 +25,80 @@
   color: var(--c0);
 }
 
+.heap__assign {
+  color: var(--c3);
+}
+
+.heap__method {
+  color: aquamarine;
+}
+
+.dialog[open] {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: transparent;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  border: none;
+  place-self: center;
+}
+
+.dialog[open]::backdrop {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.dialog__wrapper {
+  width: 100%;
+  max-width: 33rem;
+  padding: 1.625rem;
+  background: var(--glass-gradient);
+  background-size: 300%;
+  background-position: 100%;
+  border-radius: var(--border-radius);
+  border: var(--glass-border);
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+
+.dialog__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--c2);
+}
+
+.dialog__title {
+  color: var(--c0);
+}
+
+.dialog__close {
+  cursor: pointer;
+}
+
+.dialog__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.dialog__text {
+  color: var(--c2);
+}
+
+.dialog__obs {
+  margin-top: 2rem;
+  color: var(--c3);
+}
+
+.dialog__obs > span {
+  font-style: italic;
+}
+
 .heap {
   display: flex;
   gap: 1rem;
@@ -40,6 +119,11 @@
   border: 1.5px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--border-radius);
   background: var(--free-memory);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--c3);
+  font-family: "Roboto Regular";
 }
 
 .heap__unit--reserved {
