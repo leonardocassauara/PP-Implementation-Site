@@ -145,7 +145,6 @@ function createVariable(arrayText) {
         i <= availableNodes[0][0] + newNumber;
         i++
       ) {
-        console.log(i);
         heapArray[i] = newId;
       }
     }
@@ -191,15 +190,15 @@ function createVariable(arrayText) {
     }
     // * Insere no availableNodes cujo init é igual ao lastNew
     else if (heapMethod === "next") {
-      if (lastNew === null)
+      if (lastNew === null) {
         for (
           let i = availableNodes[0][0];
           i <= availableNodes[0][0] + newNumber;
           i++
         )
           heapArray[i] = newId;
-      else {
-        let ultimaOcorrenciaId = heapArray.lastIndexOf(newId);
+      } else {
+        let ultimaOcorrenciaId = heapArray.lastIndexOf(lastNew);
 
         let nodesAfter = new Array();
         let nodesBefore = new Array();
