@@ -302,4 +302,10 @@ a {
   .footer__section-wrapper {
     gap: 3rem;
   }
+  .dialog-paragraph {
+    font-size: 1rem;
+  }
+  .dialog-title {
+    font-size: 1.25rem;
+  }
 }
