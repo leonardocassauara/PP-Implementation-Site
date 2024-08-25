@@ -6,16 +6,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Início</title>
     <link rel="stylesheet" href="/global.css">
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="index.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
 <body>
+    <dialog class="dialog" id="new-dialog-id" open>
+        <div class="dialog__wrapper">
+            <div class="dialog__head">
+                <h3 class="dialog-title dialog__title">Nova Tarefa</h3>
+                <img class="dialog__close" src="../../svg/Close.svg" onclick="closeDialog()" alt="Ícone de fechar" width="16px" height="16px">
+            </div>
+            <div class="dialog__input-wrapper">
+                <div class="input__info-wrapper">
+                    <label for="title" class="label input__label">Título</label>
+                    <input type="text" name="title" id="title" class="input-font input__field">
+                </div>
+                <div class="input__info-wrapper">
+                    <label for="description" class="label input__label">Descrição</label>
+                    <input type="text" name="description" id="description" class="input-font input__field">
+                </div>
+                <div class="input__info-wrapper">
+                    <label for="tag" class="label input__label">Tag</label>
+                    <input type="text" name="tag" id="tag" class="input-font input__field">
+                </div>
+                <div class="input__info-wrapper">
+                    <label for="select-tag" class="label input__label">Cor da Tag</label>
+                    <select name="select-tag" id="select-tag" class="input-font select">
+                        <option class="input-font select__option" value="azul">Azul</option>
+                        <option class="input-font select__option" value="vermelho">Vermelho</option>
+                        <option class="input-font select__option" value="amarelo">Amarelo</option>
+                        <option class="input-font select__option" value="verde">Verde</option>
+                    </select>
+                </div>
+                <div></div>
+            </div>
+    </dialog>
+    <dialog class="dialog" id="edit-dialog-id">
+        <div class="dialog__wrapper">
+            <div class="dialog__head">
+                <h3 class="dialog-title dialog__title">Sintaxe Suportada</h3>
+                <img class="dialog__close" src="../../svg/Close.svg" onclick="closeDialog()" alt="Ícone de fechar" width="16px" height="16px">
+            </div>
+            <div class="dialog__text-wrapper">
+                <p class="dialog-paragraph dialog__text">
+                    heap { first | best | worst | next }
+                </p>
+                <p class="dialog-paragraph dialog__text">
+                    new &lt;id&gt; &lt;number&gt;
+                </p>
+                <p class="dialog-paragraph dialog__text">
+                    &lt;id&gt; = &lt;id&gt;
+                </p>
+                <p class="dialog-paragraph dialog__text">
+                    del &lt;id&gt;
+                </p>
+            </div>
+            <p class="dialog-obs dialog__obs"><span>Obs.: </span> o botão &quot;Limpar Heap&quot; libera a instância atual da heap, sendo necessário a criação de outra heap para novo uso.</p>
+        </div>
+    </dialog>
     <main class="main">
         <article class="banner">
             <a class="banner__logo-wrapper" href="/index.html">
                 <img src="../../svg/Cassauara.svg" class="banner__logo" alt="Logo" width="116px" height="23px">
             </a>
             <div class="banner__content-wrapper">
+                <div class="banner__text-wrapper">
+                    <p class="subtitle banner__subtitle">2º TRABALHO</p>
+                    <h1 class="title banner__title">POO CRUD: Note List</h1>
+                </div>
+                <div class="banner__notes-wrapper">
+                    <!-- TODO: apagar note de exemplo -->
+                    <div class="note" onClick="edit()">
+                        <h3 class="note__title">Terminar frontend dos emails do sistema de GEP</h3>
+                        <p class="note__tag--red">GEP</p>
+                        <p class="note__description">Terminar frontend dos emails do sistema de GEP</p>
+                    </div>
+                    <div class="note" onClick="edit()">
+                        <div class="note__title-tag-wrapper">
+                            <h3 class="note__title">Surpreender o Shark Abençoado</h3>
+                            <p class="note__tag--yellow">Shark Anjo</p>
+                        </div>
+                        <p class="note__description">Fazer montagem no Canva tematizada com poker e no fim fazer uma dinâmica de aprendizado de poker no dia da revelação lá no EFEJ dia 06 de Setembro</p>
+                    </div>
+                </div>
+                <div class="banner__button-wrapper">
+                    <button type="button" class="aux-button banner__button" onclick="showDialog()">+ Nova tarefa</button>
+                </div>
             </div>
         </article>
     </main>
