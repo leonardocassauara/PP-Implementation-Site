@@ -8,61 +8,81 @@
     <link rel="stylesheet" href="/global.css">
     <link rel="stylesheet" href="index.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="./utils.js"></script>
+    <script src="./NoteDataOperations.js"></script>
+    <script src="./LocalDB.js"></script>
+    <script src="./Tag.js"></script>
+    <script src="./Note.js"></script>
+    <script src="./DOM.js"></script>
+</head>
 
 <body>
-    <dialog class="dialog" id="new-dialog-id" open>
+    <dialog class="dialog" id="new-dialog-id">
         <div class="dialog__wrapper">
             <div class="dialog__head">
                 <h3 class="dialog-title dialog__title">Nova Tarefa</h3>
-                <img class="dialog__close" src="../../svg/Close.svg" onclick="closeDialog()" alt="Ícone de fechar" width="16px" height="16px">
+                <img class="dialog__close" src="../../svg/Close.svg" onclick="elements.closeNewDialog()" alt="Ícone de fechar" width="16px" height="16px">
             </div>
             <div class="dialog__input-wrapper">
                 <div class="input__info-wrapper">
-                    <label for="title" class="label input__label">Título</label>
-                    <input type="text" name="title" id="title" class="input-font input__field">
+                    <label for="new-title" class="label input__label">Título</label>
+                    <input type="text" name="title" id="new-title" class="input-font input__field" placeholder="título...">
                 </div>
                 <div class="input__info-wrapper">
-                    <label for="description" class="label input__label">Descrição</label>
-                    <input type="text" name="description" id="description" class="input-font input__field">
+                    <label for="new-description" class="label input__label">Descrição</label>
+                    <input type="text" name="description" id="new-description" class="input-font input__field" placeholder="descrição...">
                 </div>
                 <div class="input__info-wrapper">
-                    <label for="tag" class="label input__label">Tag</label>
-                    <input type="text" name="tag" id="tag" class="input-font input__field">
+                    <label for="new-tag" class="label input__label">Tag</label>
+                    <input type="text" name="tag" id="new-tag" class="input-font input__field" placeholder="tag...">
                 </div>
                 <div class="input__info-wrapper">
-                    <label for="select-tag" class="label input__label">Cor da Tag</label>
-                    <select name="select-tag" id="select-tag" class="input-font select">
+                    <label for="new-select-tag" class="label input__label">Cor da Tag</label>
+                    <select name="select-tag" id="new-select-tag" class="input-font select">
                         <option class="input-font select__option" value="azul">Azul</option>
                         <option class="input-font select__option" value="vermelho">Vermelho</option>
                         <option class="input-font select__option" value="amarelo">Amarelo</option>
                         <option class="input-font select__option" value="verde">Verde</option>
                     </select>
                 </div>
-                <div></div>
+            </div>
+            <div class="banner__button-wrapper">
+                <button type="button" class="aux-button banner__button" onclick="elements.create()">Criar tarefa</button>
             </div>
     </dialog>
     <dialog class="dialog" id="edit-dialog-id">
         <div class="dialog__wrapper">
             <div class="dialog__head">
-                <h3 class="dialog-title dialog__title">Sintaxe Suportada</h3>
-                <img class="dialog__close" src="../../svg/Close.svg" onclick="closeDialog()" alt="Ícone de fechar" width="16px" height="16px">
+                <h3 class="dialog-title dialog__title">Editar Tarefa</h3>
+                <img class="dialog__close" src="../../svg/Close.svg" onclick="elements.closeEditDialog()" alt="Ícone de fechar" width="16px" height="16px">
             </div>
-            <div class="dialog__text-wrapper">
-                <p class="dialog-paragraph dialog__text">
-                    heap { first | best | worst | next }
-                </p>
-                <p class="dialog-paragraph dialog__text">
-                    new &lt;id&gt; &lt;number&gt;
-                </p>
-                <p class="dialog-paragraph dialog__text">
-                    &lt;id&gt; = &lt;id&gt;
-                </p>
-                <p class="dialog-paragraph dialog__text">
-                    del &lt;id&gt;
-                </p>
+            <div class="dialog__input-wrapper">
+                <div class="input__info-wrapper">
+                    <label for="edit-title" class="label input__label">Título</label>
+                    <input type="text" name="title" id="edit-title" class="input-font input__field" placeholder="título...">
+                </div>
+                <div class="input__info-wrapper">
+                    <label for="edit-description" class="label input__label">Descrição</label>
+                    <input type="text" name="description" id="edit-description" class="input-font input__field" placeholder="descrição...">
+                </div>
+                <div class="input__info-wrapper">
+                    <label for="edit-tag" class="label input__label">Tag</label>
+                    <input type="text" name="tag" id="edit-tag" class="input-font input__field" placeholder="tag...">
+                </div>
+                <div class="input__info-wrapper">
+                    <label for="edit-select-tag" class="label input__label">Cor da Tag</label>
+                    <select name="select-tag" id="edit-select-tag" class="input-font select">
+                        <option class="input-font select__option" value="azul">Azul</option>
+                        <option class="input-font select__option" value="vermelho">Vermelho</option>
+                        <option class="input-font select__option" value="amarelo">Amarelo</option>
+                        <option class="input-font select__option" value="verde">Verde</option>
+                    </select>
+                </div>
             </div>
-            <p class="dialog-obs dialog__obs"><span>Obs.: </span> o botão &quot;Limpar Heap&quot; libera a instância atual da heap, sendo necessário a criação de outra heap para novo uso.</p>
-        </div>
+            <div class="banner__button-wrapper">
+                <button type="button" class="aux-button banner__button--danger" onclick="elements.delete()">Deletar tarefa</button>
+                <button type="button" class="aux-button banner__button" onclick="elements.update()">Editar tarefa</button>
+            </div>
     </dialog>
     <main class="main">
         <article class="banner">
@@ -75,22 +95,9 @@
                     <h1 class="title banner__title">POO CRUD: Note List</h1>
                 </div>
                 <div class="banner__notes-wrapper">
-                    <!-- TODO: apagar note de exemplo -->
-                    <div class="note" onClick="edit()">
-                        <h3 class="note__title">Terminar frontend dos emails do sistema de GEP</h3>
-                        <p class="note__tag--red">GEP</p>
-                        <p class="note__description">Terminar frontend dos emails do sistema de GEP</p>
-                    </div>
-                    <div class="note" onClick="edit()">
-                        <div class="note__title-tag-wrapper">
-                            <h3 class="note__title">Surpreender o Shark Abençoado</h3>
-                            <p class="note__tag--yellow">Shark Anjo</p>
-                        </div>
-                        <p class="note__description">Fazer montagem no Canva tematizada com poker e no fim fazer uma dinâmica de aprendizado de poker no dia da revelação lá no EFEJ dia 06 de Setembro</p>
-                    </div>
                 </div>
                 <div class="banner__button-wrapper">
-                    <button type="button" class="aux-button banner__button" onclick="showDialog()">+ Nova tarefa</button>
+                    <button type="button" class="aux-button banner__button" onclick="elements.openNewDialog()">+ Nova tarefa</button>
                 </div>
             </div>
         </article>
@@ -124,5 +131,6 @@
         </div>
     </footer>
 </body>
+<script src="./index.js"></script>
 
 </html>
