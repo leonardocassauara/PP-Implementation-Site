@@ -39,8 +39,8 @@ Este site armazena os trabalhos de implementação de PP **heap memory e CRUD co
 
 <!-- TODO: Mocked Image -->
 
-![Heap](https://i.imgur.com/3srV2Ej.png)
-![Heap](https://i.imgur.com/M9i2ZBF.png)
+![Heap](https://i.imgur.com/ppKsjdm.png)
+![Heap](https://i.imgur.com/MDfb2b7.png)
 
 <h2>
 <div style="font-size: 24px;">
