@@ -7,7 +7,6 @@
 
 Este site armazena os trabalhos de implementação de PP **heap memory e CRUD com POO**. O Site encontra-se em produção e pode ser acessado neste [link](https://pp-implementation-site.vercel.app/).
 
-<!-- TODO: Mocked Image -->
 
 ![Home](https://i.imgur.com/P9lOiUs.png)
 
@@ -37,10 +36,9 @@ Este site armazena os trabalhos de implementação de PP **heap memory e CRUD co
 </div>
 </h2>
 
-<!-- TODO: Mocked Image -->
 
 ![Heap](https://i.imgur.com/ppKsjdm.png)
-![Heap](https://i.imgur.com/MDfb2b7.png)
+![Heap](https://i.imgur.com/3XnSNxd.png)
 
 <h2>
 <div style="font-size: 24px;">
